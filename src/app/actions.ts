@@ -3,16 +3,32 @@
 import { z } from "zod";
 
 const registrationSchema = z.object({
-  firstName: z.string().min(2, "First name must be at least 2 characters."),
-  lastName: z.string().min(2, "Last name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email address."),
+  pangalan: z.string().min(2, "Kinakailangan ang buong pangalan."),
+  palayaw: z.string().min(2, "Kinakailangan ang palayaw."),
+  edad: z.string().min(1, "Kinakailangan ang edad."),
+  kasarian: z.enum(["Lalaki", "Babae"]),
+  contactNumber: z.string().min(10, "Kinakailangan ang contact number."),
+  localChurch: z.string().min(2, "Kinakailangan ang lokal na simbahan."),
+  kasapian: z.enum(["Bawtisado", "Nagpapahayag"]),
+  ilangBeses: z
+    .string()
+    .min(1, "Kinakailangan ang sagot kung ilang beses nang nakadalo."),
+  mgaInaasahan: z.string().min(5, "Kinakailangan ang iyong mga inaasahan."),
 });
+
 
 type State = {
   errors?: {
-    firstName?: string[];
-    lastName?: string[];
-    email?: string[];
+    [key: string]: string[] | undefined;
+    pangalan?: string[];
+    palayaw?: string[];
+    edad?: string[];
+    kasarian?: string[];
+    contactNumber?: string[];
+    localChurch?: string[];
+    kasapian?: string[];
+    ilangBeses?: string[];
+    mgaInaasahan?: string[];
   };
   message?: string | null;
 };
@@ -22,15 +38,21 @@ export async function registerForInstitute(
   formData: FormData
 ): Promise<State> {
   const validatedFields = registrationSchema.safeParse({
-    firstName: formData.get("firstName"),
-    lastName: formData.get("lastName"),
-    email: formData.get("email"),
+    pangalan: formData.get("pangalan"),
+    palayaw: formData.get("palayaw"),
+    edad: formData.get("edad"),
+    kasarian: formData.get("kasarian"),
+    contactNumber: formData.get("contactNumber"),
+    localChurch: formData.get("localChurch"),
+    kasapian: formData.get("kasapian"),
+    ilangBeses: formData.get("ilangBeses"),
+    mgaInaasahan: formData.get("mgaInaasahan"),
   });
 
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: "Error: Please check your input and try again.",
+      message: "Error: Pakisuri ang iyong input at subukang muli.",
     };
   }
 
@@ -42,6 +64,6 @@ export async function registerForInstitute(
   // In a real application, you would save the data to a database like Firestore.
 
   return {
-    message: `Success! Welcome, ${validatedFields.data.firstName}! We've sent a confirmation to ${validatedFields.data.email}.`,
+    message: `Tagumpay! Maligayang pagdating, ${validatedFields.data.palayaw}!`,
   };
 }
