@@ -1,6 +1,8 @@
 "use server";
 
 import { z } from "zod";
+import { db } from "@/lib/firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const registrationSchema = z.object({
   pangalan: z.string().min(2, "Kinakailangan ang buong pangalan."),
@@ -15,7 +17,6 @@ const registrationSchema = z.object({
     .min(1, "Kinakailangan ang sagot kung ilang beses nang nakadalo."),
   mgaInaasahan: z.string().min(5, "Kinakailangan ang iyong mga inaasahan."),
 });
-
 
 type State = {
   errors?: {
@@ -56,14 +57,16 @@ export async function registerForInstitute(
     };
   }
 
-  // Simulate saving to a database
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  console.log("Registered:", validatedFields.data);
-
-  // In a real application, you would save the data to a database like Firestore.
-
-  return {
-    message: `Tagumpay! Maligayang pagdating, ${validatedFields.data.palayaw}!`,
-  };
+  try {
+    const docRef = await addDoc(collection(db, "registrations"), validatedFields.data);
+    console.log("Document written with ID: ", docRef.id);
+    return {
+      message: `Tagumpay! Maligayang pagdating, ${validatedFields.data.palayaw}!`,
+    };
+  } catch (e) {
+    console.error("Error adding document: ", e);
+    return {
+      message: "Error: Hindi matagumpay ang pagpaparehistro. Pakisubukang muli.",
+    };
+  }
 }
