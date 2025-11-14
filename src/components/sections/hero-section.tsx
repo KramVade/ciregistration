@@ -20,9 +20,18 @@ export function HeroSection() {
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20" />
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white p-4">
-        <Button asChild size="lg" className="mt-8">
-          <Link href="#register">Begin Your Festive Journey</Link>
-        </Button>
+        <div className="bg-black/50 backdrop-blur-sm p-8 rounded-lg">
+          <h1 className="text-4xl md:text-6xl font-headline font-bold text-white drop-shadow-lg">
+            Christmas Institute
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg md:text-xl text-stone-200 drop-shadow-md">
+            Embrace the holiday spirit and master the art of yuletide cheer with
+            our exclusive courses.
+          </p>
+          <Button asChild size="lg" className="mt-8">
+            <Link href="#register">Begin Your Festive Journey</Link>
+          </Button>
+        </div>
       </div>
     </section>
   );
