@@ -15,9 +15,9 @@ const navLinks = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
-      <div className="container flex h-16 items-center">
+      <div className="container flex h-20 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <Image src={umcLogo} alt="UMC Logo" width={24} height={24} className="h-6 w-6 text-primary" />
+          <Image src={umcLogo} alt="UMC Logo" width={32} height={32} className="h-8 w-8 text-primary" />
           <span className="font-headline text-lg font-bold inline-block">
             Christmas Institute
           </span>
@@ -51,7 +51,7 @@ export function Header() {
                     href="/"
                     className="mb-8 flex items-center space-x-2 self-center"
                   >
-                    <Image src={umcLogo} alt="UMC Logo" width={24} height={24} className="h-6 w-6 text-primary" />
+                    <Image src={umcLogo} alt="UMC Logo" width={32} height={32} className="h-8 w-8 text-primary" />
                     <span className="font-headline text-lg font-bold">
                       Christmas Institute
                     </span>
