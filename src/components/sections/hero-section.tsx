@@ -1,13 +1,11 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function HeroSection() {
   const heroImage = PlaceHolderImages.find((p) => p.id === "hero-background");
 
   return (
-    <section id="hero" className="relative h-[calc(100vh-4rem)] w-full">
+    <section id="hero" className="relative h-screen w-full">
       {heroImage && (
         <Image
           src={heroImage.imageUrl}
@@ -18,19 +16,31 @@ export function HeroSection() {
           data-ai-hint={heroImage.imageHint}
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20" />
-      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white p-4">
-        <div className="bg-black/50 backdrop-blur-sm p-8 rounded-lg">
-          <h1 className="text-4xl md:text-6xl font-headline font-bold text-white drop-shadow-lg">
-            Christmas Institute
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg md:text-xl text-stone-200 drop-shadow-md">
-            Embrace the holiday spirit and master the art of yuletide cheer with
-            our exclusive courses.
+      <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" />
+      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-primary p-4">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl font-semibold tracking-wider">
+            CHRISTMAS INSTITUTE 2025
           </p>
-          <Button asChild size="lg" className="mt-8">
-            <Link href="#register">Begin Your Festive Journey</Link>
-          </Button>
+          <h1 className="text-6xl md:text-8xl font-headline font-bold text-primary my-4">
+            BANYUHAY
+          </h1>
+          <p className="text-2xl md:text-3xl font-headline italic mb-8">
+            Bagong Anyo ng Buhay
+          </p>
+          <blockquote className="max-w-2xl mx-auto text-base md:text-lg italic border-l-4 border-primary pl-4 text-left">
+            <p>
+              But that is not the way you learned Christ!—assuming that you have
+              heard about him and were taught in him, as the truth is in Jesus,
+              to put off your old self, which belongs to your former manner of
+              life and is corrupt through deceitful desires, and to be renewed
+              in the spirit of your minds, and to put on the new self, created
+              after the likeness of God in true righteousness and holiness.
+            </p>
+            <cite className="block text-right mt-4 not-italic font-semibold">
+              (EPHESIANS 4:20-24 ESV)
+            </cite>
+          </blockquote>
         </div>
       </div>
     </section>
