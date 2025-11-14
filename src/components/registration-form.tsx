@@ -32,7 +32,7 @@ const formSchema = z.object({
     .string()
     .min(10, "Kinakailangan ang contact number."),
   localChurch: z.string().min(2, "Kinakailangan ang lokal na simbahan."),
-  kasapian: z.enum(["Bawtisado", "Nagpapahayag"], {
+  kasapian: z.enum(["Baptized", "Professing"], {
     required_error: "Kailangan mong pumili ng kasapian.",
   }),
   ilangBeses: z
@@ -210,13 +210,13 @@ export function RegistrationForm() {
                 >
                   <FormItem className="flex items-center space-x-2 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value="Bawtisado" />
+                      <RadioGroupItem value="Baptized" />
                     </FormControl>
                     <FormLabel className="font-normal">Baptized</FormLabel>
                   </FormItem>
                   <FormItem className="flex items-center space-x-2 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value="Nagpapahayag" />
+                      <RadioGroupItem value="Professing" />
                     </FormControl>
                     <FormLabel className="font-normal">Professing</FormLabel>
                   </FormItem>
@@ -256,7 +256,7 @@ export function RegistrationForm() {
           )}
         />
         <Button type="submit" className="w-full" disabled={isPending}>
-          {isPending ? "Nagpapadala..." : "Isumite"}
+          {isPending ? "Submitting..." : "Submit"}
         </Button>
       </form>
     </Form>

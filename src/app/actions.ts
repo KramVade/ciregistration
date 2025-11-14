@@ -9,7 +9,7 @@ const registrationSchema = z.object({
   kasarian: z.enum(["Lalaki", "Babae"]),
   contactNumber: z.string().min(10, "Kinakailangan ang contact number."),
   localChurch: z.string().min(2, "Kinakailangan ang lokal na simbahan."),
-  kasapian: z.enum(["Bawtisado", "Nagpapahayag"]),
+  kasapian: z.enum(["Baptized", "Professing"]),
   ilangBeses: z
     .string()
     .min(1, "Kinakailangan ang sagot kung ilang beses nang nakadalo."),
