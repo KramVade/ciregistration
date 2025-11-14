@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import Image from "next/image";
 
-import { OrnamentIcon } from "@/components/icons";
+import umcLogo from "@/images/umclogo.png";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -16,7 +17,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <OrnamentIcon className="h-6 w-6 text-primary" />
+          <Image src={umcLogo} alt="UMC Logo" width={24} height={24} className="h-6 w-6 text-primary" />
           <span className="font-headline text-lg font-bold inline-block">
             Christmas Institute
           </span>
@@ -50,7 +51,7 @@ export function Header() {
                     href="/"
                     className="mb-8 flex items-center space-x-2 self-center"
                   >
-                    <OrnamentIcon className="h-6 w-6 text-primary" />
+                    <Image src={umcLogo} alt="UMC Logo" width={24} height={24} className="h-6 w-6 text-primary" />
                     <span className="font-headline text-lg font-bold">
                       Christmas Institute
                     </span>
