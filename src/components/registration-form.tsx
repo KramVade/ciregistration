@@ -190,7 +190,7 @@ export function RegistrationForm() {
             <FormItem>
               <FormLabel>Local Church</FormLabel>
               <FormControl>
-                <Input placeholder="Hal. Christ the Redeemer Church" {...field} />
+                <Input placeholder="St. Luke UMC" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -212,13 +212,13 @@ export function RegistrationForm() {
                     <FormControl>
                       <RadioGroupItem value="Bawtisado" />
                     </FormControl>
-                    <FormLabel className="font-normal">Bawtisado (Baptized)</FormLabel>
+                    <FormLabel className="font-normal">Baptized</FormLabel>
                   </FormItem>
                   <FormItem className="flex items-center space-x-2 space-y-0">
                     <FormControl>
                       <RadioGroupItem value="Nagpapahayag" />
                     </FormControl>
-                    <FormLabel className="font-normal">Nagpapahayag (Professing)</FormLabel>
+                    <FormLabel className="font-normal">Professing</FormLabel>
                   </FormItem>
                 </RadioGroup>
               </FormControl>
