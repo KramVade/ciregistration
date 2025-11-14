@@ -34,7 +34,7 @@ export function Header() {
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <Button asChild className="hidden md:flex" variant="default">
-            <Link href="#register">Register Now</Link>
+            <Link href="/login">Officer Login</Link>
           </Button>
           <div className="md:hidden">
             <Sheet>
@@ -66,6 +66,14 @@ export function Header() {
                         </Link>
                       </SheetTrigger>
                     ))}
+                     <SheetTrigger asChild>
+                        <Link
+                          href="/login"
+                          className="transition-colors hover:text-primary"
+                        >
+                          Officer Login
+                        </Link>
+                      </SheetTrigger>
                   </nav>
                 </div>
               </SheetContent>
